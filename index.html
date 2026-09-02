@@ -86,6 +86,11 @@
               View My Work
             </a>
             <a href="#contact" class="btn-s" id="connectBtn">Let's Connect</a>
+            <button class="btn-s" id="resumeBtn" onclick="document.getElementById('resumeModal').style.display='flex'">
+              <svg width="13" height="14" viewBox="0 0 13 14" fill="none" aria-hidden="true"><rect x="1" y="1" width="9" height="12" rx="1.2" stroke="currentColor" stroke-width="1.4"/><path d="M3.5 4.5h5M3.5 7h5M3.5 9.5h3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+              Resume
+            </button>
+
           </div>
         </div>
 
@@ -1003,6 +1008,35 @@
       </div>
     </div>
   </div>
+
+  <!-- ═══════════ RESUME MODAL ═══════════ -->
+  <div id="resumeModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.85);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:16px" role="dialog" aria-label="Resume Viewer" aria-modal="true">
+    <div style="background:#111;border:1px solid rgba(255,255,255,0.1);border-radius:14px;width:min(860px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,0.7)">
+      <!-- Modal top bar -->
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.08);flex-shrink:0">
+        <span style="font-family:'Sora',sans-serif;font-size:14px;font-weight:600;color:#c9a84c;letter-spacing:.06em">RESUME</span>
+        <div style="display:flex;gap:10px;align-items:center">
+          <a href="Abhishek Mishra - Resume - Digital Marketing.pdf.pdf" download="Abhishek_Mishra_Resume.pdf" style="display:inline-flex;align-items:center;gap:6px;padding:7px 18px;background:#c9a84c;color:#000;font-family:'Sora',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;border-radius:6px;text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 1v7M3 6l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 10h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Download
+          </a>
+          <button onclick="document.getElementById('resumeModal').style.display='none'" aria-label="Close resume" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#fff;width:34px;height:34px;border-radius:50%;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s" onmouseover="this.style.background='rgba(255,255,255,0.14)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'">✕</button>
+        </div>
+      </div>
+      <!-- PDF iframe -->
+      <iframe src="Abhishek Mishra - Resume - Digital Marketing.pdf.pdf" style="flex:1;border:none;min-height:70vh" title="Abhishek Mishra Resume"></iframe>
+    </div>
+  </div>
+  <script>
+    // Close resume modal on backdrop click
+    document.getElementById('resumeModal').addEventListener('click', function(e) {
+      if (e.target === this) this.style.display = 'none';
+    });
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') document.getElementById('resumeModal').style.display = 'none';
+    });
+  </script>
 
   <script src="script.js"></script>
 </body>
